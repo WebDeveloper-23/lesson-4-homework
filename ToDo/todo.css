@@ -1,0 +1,219 @@
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/lato/v23/S6uyw4BMUTPHvxk.ttf) format('truetype');
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato';
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #3b3b61;
+}
+body header {
+  padding: 1rem 0.5rem;
+  width: 80%;
+  margin: 0 auto;
+}
+@media screen and (max-width: 500px) {
+  body header {
+    width: 100%;
+  }
+}
+body header h1 {
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  color: #eee;
+  text-align: center;
+}
+body header #new-task-form {
+  display: flex;
+}
+body header #new-task-form input {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: none;
+  font-size: 20px;
+}
+body header #new-task-form #new-task-input {
+  flex: 1 1 0%;
+  background-color: #2f2f4d;
+  padding: 0.8rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  font-size: 20px;
+  color: #eee;
+}
+body header #new-task-form #new-task-input::placeholder {
+  color: #3b3b61;
+}
+body header #new-task-form #new-task-submit {
+  color: #ec4899;
+  background: linear-gradient(to right, #ec4899, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+}
+body header #new-task-form #new-task-submit:hover {
+  opacity: 0.7;
+}
+body header #new-task-form #new-task-submit:focus {
+  opacity: 0.6;
+}
+body .task-list {
+  padding: 1rem 0.5rem;
+  width: 80%;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+@media screen and (max-width: 500px) {
+  body .task-list {
+    width: 100%;
+  }
+}
+body .task-list h2 {
+  font-size: 20px;
+  color: #eee;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+body .task-list #tasks {
+  overflow-y: auto;
+}
+body .task-list #tasks .task {
+  display: flex;
+  justify-content: space-between;
+  background-color: #2f2f4d;
+  padding: 0.8rem 0.7rem;
+  border-radius: 1rem;
+  margin-bottom: 0.8rem;
+}
+body .task-list #tasks .task .content {
+  flex: 1 1 0%;
+}
+body .task-list #tasks .task .content .text {
+  color: #eee;
+  font-size: 17px;
+  padding-right: 10px;
+  padding-left: 5px;
+  width: 100%;
+  transition: 0.4s;
+  cursor: default;
+}
+body .task-list #tasks .task .content .text:not(:read-only) {
+  color: #ec4899;
+}
+body .task-list #tasks .task .actions {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+body .task-list #tasks .task .actions button {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  font-size: 20px;
+  transition: 0.4s;
+}
+body .task-list #tasks .task .actions button:hover {
+  opacity: 0.7;
+}
+body .task-list #tasks .task .actions button:focus {
+  opacity: 0.6;
+}
+body .task-list #tasks .task .actions .edit {
+  color: #8b5cf6;
+  background: linear-gradient(to right, #ec4899, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body .task-list #tasks .task .actions .delete {
+  color: #b80707;
+}
+body #pleaseFillInput {
+  width: 15%;
+  height: 7%;
+  background-color: #26263e;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  text-transform: capitalize;
+  letter-spacing: 1.5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+body #pleaseFillInput h4 {
+  color: #b80707;
+}
+@media screen and (max-width: 800px) {
+  body #pleaseFillInput {
+    width: 50%;
+  }
+  body #pleaseFillInput h2 {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  body #pleaseFillInput {
+    width: 75%;
+  }
+  body #pleaseFillInput h2 {
+    font-size: 20px;
+  }
+}
+body #pleaseFillInput.active {
+  visibility: visible;
+  opacity: 1;
+}
+input,
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: 5px;
+  scrollbar-color: #a92a7a;
+  border-radius: 15px;
+}
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 15px;
+}
+*::-webkit-scrollbar-track {
+  background: #2f2e2e;
+  border-radius: 15px;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #8f54a0;
+  border-radius: 15px;
+}

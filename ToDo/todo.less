@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@ffamily:'Lato';
+@small:17px;
+@medium:20px;
+@large:25px;
+@extraLarge:30px;
+@pink:#ec4899;
+@purple:#8b5cf6;
+@red:#b80707;
+@light:#eee;
+@dark:#3b3b61;
+@darker:#2f2f4d;
+@darkest:#26263e;
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: @ffamily;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: @dark;
+
+    header{
+        padding: 1rem .5rem;
+        width: 80%;
+        margin: 0 auto;
+        @media screen  and (max-width:500px){
+            width: 100%;
+        }
+        h1{
+            font-size: @extraLarge;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: @light;
+            text-align: center;
+        }
+        #new-task-form{
+            display: flex;
+            input{
+                appearance: none;
+                -webkit-appearance: none;
+                border: none;
+                outline: none;
+                padding-left: 5px;
+                padding-right: 5px;
+                background: none;
+                font-size: @medium;
+            }
+            #new-task-input{
+                flex: 1 1 0%;
+                background-color: @darker;
+                padding: .8rem;
+                border-radius: 1rem;
+                margin-right: 1rem;
+                font-size:@medium;
+                color: @light;
+                &::placeholder{
+                    color: @dark;
+                }
+            }
+            #new-task-submit{
+                color: @pink;
+                background: linear-gradient(to right,@pink,@purple);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                cursor: pointer;
+                font-size: @medium;
+                font-weight: bold;
+                &:hover{
+                    opacity: .7;
+                }
+                &:focus{
+                    opacity: .6;
+                }
+            }
+        }
+    }
+    .task-list{
+        padding: 1rem .5rem;
+        width: 80%;
+        margin: 0 auto;
+        overflow-y: auto;
+        @media screen  and (max-width:500px){
+            width: 100%;
+        }
+        h2{
+            font-size: @medium;
+            color: @light;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        #tasks{
+            overflow-y: auto;
+            .task{
+                display: flex;
+                justify-content: space-between;
+                background-color: @darker;
+                padding: .8rem .7rem;
+                border-radius: 1rem;
+                margin-bottom: .8rem;
+                .content{
+                    flex: 1 1 0%;
+                    .text{
+                        color: @light;
+                        font-size: @small;
+                        padding-right: 10px;
+                        padding-left: 5px;
+                        width: 100%;
+                        
+                        transition: .4s;
+                        cursor: default;
+                        &:not(:read-only){
+                            color: @pink;
+                        }
+                    }
+                }
+                .actions{
+                    display: flex;
+                    margin: 0 -.5rem;
+                    button{
+                        cursor: pointer;
+                        margin: 0 .5rem;
+                        font-size: @medium;
+                        transition:.4s;
+                        &:hover{
+                            opacity: .7;
+                        }
+                        &:focus{
+                            opacity: .6;
+                        }
+                    }
+                    .edit{
+                        color: @purple;
+                        background: linear-gradient(to right,@pink,@purple);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+                    .delete{
+                        color: @red;
+                    }
+                }
+            }
+        }
+    }
+
+    #pleaseFillInput{
+        width: 15%;
+        height: 7%;
+        background-color: @darkest;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 1rem .7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 1rem;
+        text-transform: capitalize;
+        letter-spacing: 1.5px;
+        visibility: hidden;
+        opacity: 0;
+        transition: .5s;
+        h4{
+            color: @red;
+        }
+        @media screen  and ( max-width:800px){
+            width: 50%;
+            h2{
+                font-size: @medium;
+            }
+        }
+        @media screen  and ( max-width:500px){
+            width: 75%;
+            h2{
+                font-size: @medium;
+            }
+        }
+    }
+    #pleaseFillInput.active{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+input,
+button{
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+* {
+    scrollbar-width: 5px;
+    scrollbar-color: #a92a7a;
+    border-radius: 15px;
+}
+
+  /* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 5px;
+    border-radius: 15px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #2f2e2e;
+    border-radius: 15px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #8f54a0;
+    border-radius: 15px;
+}
